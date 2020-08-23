@@ -8,7 +8,7 @@
             <th>Email</th>
             <th>Image</th>
             <th>Role</th>
-            <th>Date</th>
+            <th>Date Register</th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
                 $firstname = $row['user_firstname'];
                 $lastname = $row['user_lastname'];
                 $email = $row['user_email'];
-                $date = date("d/m/Y", strtotime($row['user_date']));
+                $date = date("d/m/Y", strtotime($row['user_register']));
                 $image = $row['user_image'];
                 $role = $row['user_role'];
                 echo "<tr>";

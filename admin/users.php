@@ -21,13 +21,13 @@
                                 $action = "";
                             }
                             switch ($action) {
-                                case 'add_post':
+                                case 'add_user':
                                     include "includes/add_user.php";
                                     break;
-                                case 'view_all_posts':
+                                case 'view_all_users':
                                     include "includes/view_all_users.php";
                                     break;
-                                case 'edit_post':
+                                case 'edit_user':
                                     include "includes/edit_user.php";
                                     break;
                                 default:
