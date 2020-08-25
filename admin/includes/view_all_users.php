@@ -22,7 +22,7 @@
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>User ID</th>
+            <th>ID</th>
             <th>Username</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -30,7 +30,6 @@
             <th>Image</th>
             <th>Role</th>
             <th>Date Register</th>
-            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -58,14 +57,16 @@
                 echo "<td><img class='img-responsive' src='$path/$image' alt='image'></td>";
                 echo "<td>{$role}</td>";
                 echo "<td>{$date}</td>";
-                if ($status == "Unapproved") {
-                    echo "<td>Unapproved</td>";
-                    echo "<td><a href='users.php?approved={$user_id}'</a>Approved</td>";
-                }else if ($status == "Approved") {
-                    echo "<td>Approved</td>";
-                    echo "<td><a href='users.php?unapproved={$user_id}'</a>Unapproved</td>";
+                if ($role != 'admin') {
+                    if ($status == "Unapproved") {
+                        echo "<td>Unapproved</td>";
+                        echo "<td><a href='users.php?approved={$user_id}'</a>Approved</td>";
+                    }else if ($status == "Approved") {
+                        echo "<td>Approved</td>";
+                        echo "<td><a href='users.php?unapproved={$user_id}'</a>Unapproved</td>";
+                    }
+                    echo "<td><a href='users.php?delete={$user_id}'</a>Delete</td>";
                 }
-                echo "<td><a href='users.php?delete={$user_id}'</a>Delete</td>";
                 echo "</tr>";                              
             }
         }
