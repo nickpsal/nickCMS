@@ -11,17 +11,18 @@
             $user_photo_temp = $_FILES['image']['tmp_name'];
             $user_role = $_POST['user_role']; 
             $user_registered = date("Y/m/d");
+            $user_status = "Approved";
             $path = "../images/" . $username;
             if (!is_dir($path)) {
                 mkdir($path, 0755, true);
             }
             if (empty($user_photo)) {
-                $query = "INSERT INTO users (user_username, user_password, user_firstname, user_lastname, user_email, user_register, user_role)";
-                $query .= "VALUES ('{$username}', '{$password}', '{$user_firstname}', '{$user_lastname}', '{$user_email}', '{$user_registered}', '{$user_role}')";
+                $query = "INSERT INTO users (user_username, user_password, user_firstname, user_lastname, user_email, user_register, user_role, user_status)";
+                $query .= "VALUES ('{$username}', '{$password}', '{$user_firstname}', '{$user_lastname}', '{$user_email}', '{$user_registered}', '{$user_role}', '{$user_status}')";
             }else {
                 move_uploaded_file($user_photo_temp, "$path/$user_photo");
-                $query = "INSERT INTO users (user_username, user_password, user_firstname, user_lastname, user_email, user_register, user_image, user_role)";
-                $query .= "VALUES ('{$username}', '{$password}', '{$user_firstname}', '{$user_lastname}', '{$user_email}', '{$user_registered}', '{$user_photo}' ,'{$user_role}')";
+                $query = "INSERT INTO users (user_username, user_password, user_firstname, user_lastname, user_email, user_register, user_image, user_role, user_status)";
+                $query .= "VALUES ('{$username}', '{$password}', '{$user_firstname}', '{$user_lastname}', '{$user_email}', '{$user_registered}', '{$user_photo}' ,'{$user_role}', '{$user_status}')";
             }
             echo $query;
             $create_post_query = mysqli_query($conn, $query);
