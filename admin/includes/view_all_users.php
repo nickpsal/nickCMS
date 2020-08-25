@@ -49,7 +49,7 @@
                 $status = $row['user_status'];
                 echo "<tr>";
                 echo "<td>{$user_id}</td>";
-                echo "<td>{$username}</td>";
+                echo "<td><a href='users.php?action=edit_user&user_id={$user_id}'</a>$username</td>";
                 echo "<td>{$firstname}</td>";  
                 echo "<td>{$lastname}</td>";
                 echo "<td>{$email}</td>";  
@@ -57,13 +57,13 @@
                 echo "<td><img class='img-responsive' src='$path/$image' alt='image'></td>";
                 echo "<td>{$role}</td>";
                 echo "<td>{$date}</td>";
-                if ($role != 'admin') {
+                if ($role != 'Admin') {
                     if ($status == "Unapproved") {
-                        echo "<td>Unapproved</td>";
-                        echo "<td><a href='users.php?approved={$user_id}'</a>Approved</td>";
+                        echo "<td>Disable</td>";
+                        echo "<td><a href='users.php?approved={$user_id}'</a>Enable</td>";
                     }else if ($status == "Approved") {
-                        echo "<td>Approved</td>";
-                        echo "<td><a href='users.php?unapproved={$user_id}'</a>Unapproved</td>";
+                        echo "<td>Enable</td>";
+                        echo "<td><a href='users.php?unapproved={$user_id}'</a>Disable</td>";
                     }
                     echo "<td><a href='users.php?delete={$user_id}'</a>Delete</td>";
                 }
