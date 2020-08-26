@@ -1,11 +1,14 @@
 <?php
     if (isset($_POST['add_user'])){
         $password = $_POST['user_password'];
+        $password = mysqli_real_escape_string($conn, $password);
         $confirm_password = $_POST['user_confirm_password'];
+        $confirm_password = mysqli_real_escape_string($conn, $confirm_password);
         if ($password === $confirm_password) {
             $user_firstname = $_POST['user_firstname'];
             $user_lastname = $_POST['user_lastname'];
             $username = $_POST['user_username'];
+            $username = mysqli_real_escape_string($conn, $username);
             $user_email = $_POST['user_email'];
             $user_photo = $_FILES['image']['name'];
             $user_photo_temp = $_FILES['image']['tmp_name'];
